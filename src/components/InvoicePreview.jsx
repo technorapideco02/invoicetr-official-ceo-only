@@ -186,33 +186,20 @@ const InvoicePreview = ({ data }) => {
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '4rem' }}>
                         <div style={{ flex: 1, paddingRight: '2rem' }}>
                             <h3 style={{ fontSize: '0.875rem', textTransform: 'uppercase', fontWeight: 'bold', marginBottom: '1rem' }}>Payment Details</h3>
-                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                <div style={{ fontSize: '0.875rem', lineHeight: '1.8' }}>
-                                    <div style={{ display: 'grid', gridTemplateColumns: '100px auto' }}>
-                                        <span style={{ color: '#6b7280' }}>Bill From:</span>
-                                        <span style={{ fontWeight: '500' }}>{data.billFrom.name}</span>
-                                    </div>
-                                    {data.billFrom.gst && (
-                                        <div style={{ display: 'grid', gridTemplateColumns: '100px auto' }}>
-                                            <span style={{ color: '#6b7280' }}>GSTIN:</span>
-                                            <span>{data.billFrom.gst}</span>
-                                        </div>
-                                    )}
-                                    <div style={{ display: 'grid', gridTemplateColumns: '100px auto' }}>
-                                        <span style={{ color: '#6b7280' }}>Email:</span>
-                                        <span>{data.billFrom.email}</span>
-                                    </div>
+                            <div style={{ fontSize: '0.875rem', lineHeight: '1.8' }}>
+                                <div style={{ display: 'grid', gridTemplateColumns: '100px auto' }}>
+                                    <span style={{ color: '#6b7280' }}>Bill From:</span>
+                                    <span style={{ fontWeight: '500' }}>{data.billFrom.name}</span>
                                 </div>
-
-                                <div style={{ textAlign: 'center', marginRight: '2rem' }}>
-                                    <img
-                                        src="https://res.cloudinary.com/dslw83bre/image/upload/v1766852280/e594e8ff-671f-4d4f-86f9-50439b1c4549.png"
-                                        alt="Payment QR"
-                                        style={{ height: '80px', width: '80px', marginBottom: '0.5rem' }}
-                                    />
-                                    <div style={{ fontSize: '0.7rem', fontWeight: 'bold', color: '#374151' }}>
-                                        Scan to Pay
+                                {data.billFrom.gst && (
+                                    <div style={{ display: 'grid', gridTemplateColumns: '100px auto' }}>
+                                        <span style={{ color: '#6b7280' }}>GSTIN:</span>
+                                        <span>{data.billFrom.gst}</span>
                                     </div>
+                                )}
+                                <div style={{ display: 'grid', gridTemplateColumns: '100px auto' }}>
+                                    <span style={{ color: '#6b7280' }}>Email:</span>
+                                    <span>{data.billFrom.email}</span>
                                 </div>
                             </div>
 
