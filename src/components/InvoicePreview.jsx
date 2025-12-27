@@ -234,7 +234,7 @@ const InvoicePreview = ({ data }) => {
                 </div>
 
                 {/* Spacer block for footer */}
-                <div className="print-footer-spacer" style={{ height: '150px', display: 'none' }}></div>
+                <div className="print-footer-spacer" style={{ height: '380px', display: 'none' }}></div>
 
 
                 {/* REPEATING FOOTER */}

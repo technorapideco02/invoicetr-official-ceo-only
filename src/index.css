@@ -141,54 +141,64 @@ select:focus {
     overflow: visible !important;
     print-color-adjust: exact !important;
     -webkit-print-color-adjust: exact !important;
+    display: block !important;
+    /* Disable flex to prevent truncation */
   }
 
-  /* Fixed Header Repeating on Every Page */
+  .invoice-body {
+    display: block !important;
+    padding-top: 0 !important;
+    /* Adjust if needed */
+  }
+
+  /* Flow-based layout for "Same as Preview" printing */
   .invoice-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 50;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    z-index: 1;
     background: white;
-    /* Ensure it covers content behind */
   }
 
-  /* Fixed Footer Repeating on Every Page */
   .invoice-fixed-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 50;
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    z-index: 1;
     background: white;
   }
 
-  /* Spacers to prevent content overlap */
-  .print-header-spacer {
-    display: block !important;
-    height: 480px !important;
-    /* Adjust based on header size */
-  }
-
+  /* Hide spacers as they are not needed in flow layout */
+  .print-header-spacer,
   .print-footer-spacer {
-    display: block !important;
-    height: 150px !important;
-    /* Adjust based on footer size */
+    display: none !important;
   }
 
-  /* Reset main container margin for simple flow */
+  /* Reset main container spacing */
   #invoice-preview {
     margin: 0 !important;
+    /* Increase height to compensate for zoom (270mm usable / 0.75 ≈ 360mm) */
+    min-height: 360mm !important;
+    height: auto !important;
+    /* Scale down to fit one page */
+    zoom: 0.75;
+    -moz-transform: scale(0.75);
+    -moz-transform-origin: top center;
+    /* Restore flex to push footer down */
+    display: flex !important;
+    flex-direction: column !important;
   }
 
   .invoice-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: relative !important;
     width: 100%;
-    z-index: 50;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+  }
+
+  /* Prevent footer from splitting */
+  .invoice-fixed-footer {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 }
